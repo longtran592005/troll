@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .h-2000px {
+        height: 2000px;
+      }
+      .bg-black {
+        background-color: black;
+      }
+      .bg-white {
+        background-color: white;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a h-2000px bg-black"></div>
+    <div class="b h-2000px bg-white"></div>
+    <script>
+      const divs = [document.querySelector(".a"), document.querySelector(".b")];
+      let currentIndex = 0;
+
+      setInterval(() => {
+        // 1. Ẩn phần tử hiện tại đi
+        divs[currentIndex].classList.add("hidden");
+
+        // 2. Chuyển sang phần tử tiếp theo (xoay vòng về 0 nếu hết mảng)
+        currentIndex = (currentIndex + 1) % divs.length;
+
+        // 3. Hiện phần tử tiếp theo lên
+        divs[currentIndex].classList.remove("hidden");
+      }, 100); // Thay đổi sau mỗi 0.1 giây
+    </script>
+  </body>
+</html>
